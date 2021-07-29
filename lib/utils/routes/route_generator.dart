@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/pages/error.dart';
+import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/utils/routes/routing_constants.dart';
+
+class RouteGenerator {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    final args = settings.arguments;
+    switch (settings.name) {
+      case HomePageRoute:
+        if (args is Language){
+          return PageRouteBuilder(
+            settings: RouteSettings(name: HomePageRoute),
+            transitionDuration: Duration(seconds: 0),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return child;
+            },
+            pageBuilder: (context, animation, secondaryAnimation) => HomePage(language: args),
+          );
+        }
+        else{
+          return _errorRoute();
+        }
+      default:
+        return _errorRoute();
+    }
+  }
+}
+
+Route<dynamic> _errorRoute() {
+  return PageRouteBuilder(
+      settings: RouteSettings(name: ErrorRoute),
+      transitionDuration: Duration(seconds: 0),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return child;
+      },
+      pageBuilder: (context, animation, secondaryAnimation) => ErrorPage());
+}
