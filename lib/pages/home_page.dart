@@ -1,12 +1,7 @@
-import 'dart:html';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/home_page_content.dart';
-import 'package:portfolio/components/structure/structure.dart';
 import 'package:portfolio/models/language/language.dart';
-import 'package:portfolio/utils/languages.dart';
-import 'package:portfolio/utils/routes/routing_constants.dart';
 
 class HomePage extends StatefulWidget {
   final Language language;
@@ -22,27 +17,31 @@ class HomePageState extends State<HomePage> {
 
   HomePageState({required this.language});
 
-  void onChanged(Language language) {
-    setState(() {
-      this.language = language;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    print("AAAAAAAAAAAAAAAA");
-    print(language.homePageTitle);
-    return WillPopScope(
-      onWillPop: () async {
-        Navigator.pushNamedAndRemoveUntil(
-            context, HomePageRoute, ModalRoute.withName(HomePageRoute));
-        return true;
-      },
-      child: Structure(
-        image: AssetImage('lib/assets/rainbow_keyboard.jpg'),
-        language: this.language,
-        onChanged: onChanged,
-        child: HomePageContent(language: this.language),
+    language = widget.language;
+    return Center(
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width * 0.7,
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.35,
+            ),
+            AutoSizeText(
+              "Charlotte Finance",
+              style: TextStyle(fontSize: 50, color: Colors.white),
+              maxLines: 1,
+            ),
+            Text("\n"),
+            AutoSizeText(
+              language.titles.homePage,
+              style: TextStyle(fontSize: 50, color: Colors.white),
+              maxLines: 1,
+            ),
+          ],
+        ),
       ),
     );
   }

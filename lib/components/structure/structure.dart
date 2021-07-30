@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/structure/footer.dart';
 import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/utils/colors.dart';
 
 import 'app_bar.dart';
 
@@ -25,7 +26,7 @@ class Structure extends StatefulWidget {
 
 class _Structure extends State<Structure> {
   Language language;
-  final AssetImage image;
+  AssetImage image;
   Widget child;
   final Function onChanged;
 
@@ -39,6 +40,7 @@ class _Structure extends State<Structure> {
   Widget build(BuildContext context) {
     language = widget.language;
     child = widget.child;
+    image = widget.image;
     return Scaffold(
       body: Scrollbar(
         //controller: widget.scrollController,
@@ -52,7 +54,7 @@ class _Structure extends State<Structure> {
           child: Column(
             children: [
               Container(
-                color: Color(0xFFB484848),
+                color: myGrey,
                 width: MediaQuery.of(context).size.width,
                 child: Stack(
                   children: [
@@ -61,7 +63,7 @@ class _Structure extends State<Structure> {
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          fit: BoxFit.contain,
+                          fit: BoxFit.fill,
                           image: image,
                         ),
                       ),
@@ -90,7 +92,7 @@ class _Structure extends State<Structure> {
                 ),
               ),
               Container(
-                color: Colors.black26,
+                color: myGrey,
                 height: MediaQuery.of(context).size.height * 0.1,
                 child: MyFooter(),
               ),

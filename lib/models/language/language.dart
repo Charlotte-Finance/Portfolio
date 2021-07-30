@@ -1,11 +1,18 @@
+import 'package:flutter/cupertino.dart';
+import 'package:portfolio/models/language/title.dart';
+
 import 'tab.dart';
 
 class Language {
+  final String name;
+  final Tab tabs;
+  final LanguageTitle titles;
+  final AssetImage image;
 
-  Tab tab;
-  String homePageTitle;
-
-  Language({required this.tab, required this.homePageTitle});
-
+  Language({
+    required this.name,
+    required this.tabs,
+    required this.titles,
+    required this.image,
+  });
 }
-

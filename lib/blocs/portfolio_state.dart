@@ -9,12 +9,29 @@ class PortFolioLoading extends PortFolioState {
   List<Object> get props => [];
 }
 
-class PortFolioLoaded extends PortFolioState {
-  final Language language;
-
-  const PortFolioLoaded({required this.language});
+class PortFolioHomePage extends PortFolioState {
   @override
-  List<Object> get props => [this.language];
+  List<Object> get props => [];
+}
+
+class PortFolioWhoAmI extends PortFolioState {
+  @override
+  List<Object> get props => [];
+}
+
+class PortFolioCV extends PortFolioState {
+  @override
+  List<Object> get props => [];
+}
+
+class PortFolioMyProjects extends PortFolioState {
+  @override
+  List<Object> get props => [];
+}
+
+class PortFolioContact extends PortFolioState {
+  @override
+  List<Object> get props => [];
 }
 
 class PortFolioError extends PortFolioState {

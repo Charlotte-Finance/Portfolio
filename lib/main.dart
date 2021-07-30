@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/blocs/portfolio_bloc.dart';
-import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/pages/port_folio_page.dart';
 import 'package:portfolio/utils/languages.dart';
 import 'package:portfolio/utils/routes/route_generator.dart';
 import 'package:portfolio/utils/routes/routing_constants.dart';
-import 'blocs/home_page/home_page_bloc.dart';
+
+import 'blocs/portfolio_bloc.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
-    //print(transition);
+    print(transition);
   }
 }
 
@@ -20,7 +20,7 @@ void main() {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
-        create: (BuildContext context) => HomePageBloc(),
+        create: (BuildContext context) => PortFolioBloc(),
       ),
     ],
     child: MyApp(),
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               return child;
             },
             pageBuilder: (context, animation, secondaryAnimation) =>
-                HomePage(language: languageEn),
+                PortFolioPage(language: languageEn),
           )
         ];
       },

@@ -1,9 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 
-class MyFooter extends StatelessWidget{
-
+class MyFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

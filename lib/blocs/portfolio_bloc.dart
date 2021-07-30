@@ -1,31 +1,31 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/models/language/language.dart';
-import 'package:portfolio/utils/languages.dart';
 
 part 'portfolio_event.dart';
 
 part 'portfolio_state.dart';
 
 class PortFolioBloc extends Bloc<PortFolioEvent, PortFolioState> {
-  PortFolioBloc() : super(PortFolioLoaded(language: languageEn));
+  PortFolioBloc() : super(PortFolioHomePage());
 
   @override
   Stream<PortFolioState> mapEventToState(
-      PortFolioEvent event,
-      ) async* {
-    if (event is ChangeLanguage) {
-      yield* _mapChangeLanguageToState(event);
+    PortFolioEvent event,
+  ) async* {
+    if (event is FetchHomePage) {
+      yield PortFolioHomePage();
     }
-  }
-
-
-  Stream<PortFolioState> _mapChangeLanguageToState(ChangeLanguage event) async* {
-    yield PortFolioLoading();
-    try {
-      yield PortFolioLoaded(language: event.language);
-    } catch (_) {
-      yield PortFolioError(message: "Failed to fetch Home Page");
+    if (event is FetchWhoAmI) {
+      yield PortFolioWhoAmI();
+    }
+    if (event is FetchCV) {
+      yield PortFolioCV();
+    }
+    if (event is FetchMyProjects) {
+      yield PortFolioMyProjects();
+    }
+    if (event is FetchContact) {
+      yield PortFolioContact();
     }
   }
 }

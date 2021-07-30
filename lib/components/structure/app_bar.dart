@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/blocs/portfolio_bloc.dart';
 import 'package:portfolio/models/language/language.dart';
-import 'package:portfolio/models/language/language_item.dart';
+import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/languages.dart';
 import 'package:portfolio/utils/routes/routing_constants.dart';
+import 'package:provider/provider.dart';
 
 class MyAppBar extends StatefulWidget {
   final Language language;
@@ -34,47 +34,50 @@ class MyAppBarState extends State<MyAppBar> {
     MyProjectsRoute,
     ContactRoute,
   ];
-  List<LanguageItem> languageItems = [languageItemEn, languageItemFr];
+  List<Language> languages = [languageEn, languageFr];
 
-  MyAppBarState(
-      {required this.language, required this.onChanged});
+  MyAppBarState({required this.language, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     language = widget.language;
     List<String> tabs = [
-      language.tab.homePageTab,
-      language.tab.whoAmITab,
-      language.tab.cvTab,
-      language.tab.myProjectsTab,
-      language.tab.contactTab
+      language.tabs.homePageTab,
+      language.tabs.whoAmITab,
+      language.tabs.cvTab,
+      language.tabs.myProjectsTab,
+      language.tabs.contactTab
+    ];
+    List events = [
+      FetchHomePage(),
+      FetchWhoAmI(),
+      FetchCV(),
+      FetchMyProjects(),
+      FetchContact()
     ];
     return Container(
-      decoration: BoxDecoration(color: Colors.white.withOpacity(0.1)),
+      color: myGrey,
       child: Row(
         children: <Widget>[
           for (int i = 0; i < tabs.length; i++) ...[
             Expanded(
               child: AnimatedContainer(
-                height: AppBar().preferredSize.height,
                 duration: Duration(seconds: 2),
                 curve: Curves.easeIn,
                 child: Material(
-                  color: Colors.white.withOpacity(0.2),
+                  color: myGrey,
                   child: InkWell(
                     onTap: () {
-                      if (tabs[i] == "Language") {
-                      } else {
-                        print(directions[i]);
+                      context.read<PortFolioBloc>().add(events[i]);
+                      WidgetsBinding.instance!.addPostFrameCallback((_) {
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           directions[i],
                           ModalRoute.withName(directions[i]),
                           arguments: language,
                         );
-                      }
+                      });
                     },
-                    onHover: (value) {},
                     child: Container(
                       child: Center(
                         child: Text(
@@ -89,48 +92,72 @@ class MyAppBarState extends State<MyAppBar> {
             ),
           ],
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(color: Colors.white.withOpacity(0.2)),
-              child: DropdownButton(
-                hint: Text(
-                  "Language",
-                  style: TextStyle(color: Colors.white),
-                ),
-                items: languageItems.map((LanguageItem language) {
-                  return DropdownMenuItem(
-                    value: language,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: language.image,
+            child: Row(
+              children: [
+                Expanded(child: Container()),
+                Expanded(
+                  child: Container(
+                    color: myGrey,
+                    child: new Theme(
+                      data: Theme.of(context).copyWith(
+                        canvasColor: myGrey,
+                      ),
+                      child: DropdownButton(
+                        hint: Row(
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: language.image,
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Text(
+                              language.name,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          language.name,
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
+                        items: languages.map((Language language) {
+                          return DropdownMenuItem(
+                            value: language,
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: language.image,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 25,
+                                ),
+                                Text(
+                                  language.name,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          onChanged(value);
+                        },
+                      ),
                     ),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  if (value == languageItemEn) {
-                    onChanged(languageEn);
-                  }
-                  if (value == languageItemFr) {
-                    onChanged(languageFr);
-                  }
-                },
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ],
