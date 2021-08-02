@@ -1,15 +1,9 @@
-class Tab {
-  String homePageTab;
-  String whoAmITab;
-  String cvTab;
-  String myProjectsTab;
-  String contactTab;
+class MyTab {
+  String name;
+  String title;
 
-  Tab({
-    required this.homePageTab,
-    required this.whoAmITab,
-    required this.cvTab,
-    required this.myProjectsTab,
-    required this.contactTab,
+  MyTab({
+    required this.name,
+    required this.title,
   });
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class MyFooter extends StatelessWidget {
   @override
@@ -6,7 +7,7 @@ class MyFooter extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 100.0,
-      decoration: BoxDecoration(color: Colors.black54),
+      decoration: BoxDecoration(color: myGrey),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

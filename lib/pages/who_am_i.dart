@@ -1,25 +1,25 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/tab.dart';
 
 class WhoAmIPage extends StatefulWidget {
-  final Language language;
+  final MyTab tab;
 
-  const WhoAmIPage({required this.language});
+  const WhoAmIPage({required this.tab});
 
   @override
-  State<StatefulWidget> createState() => WhoAmIPageState(language: language);
+  State<StatefulWidget> createState() => WhoAmIPageState(tab: tab);
 }
 
 class WhoAmIPageState extends State<WhoAmIPage> {
-  Language language;
+    MyTab tab;
 
-  WhoAmIPageState({required this.language});
+  WhoAmIPageState({required this.tab});
 
   @override
   Widget build(BuildContext context) {
-    language = widget.language;
+    tab = widget.tab;
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height,
@@ -36,7 +36,7 @@ class WhoAmIPageState extends State<WhoAmIPage> {
             ),
             Text("\n"),
             AutoSizeText(
-              language.titles.whoAmI,
+              tab.title,
               style: TextStyle(fontSize: 50, color: Colors.white),
               maxLines: 1,
             ),

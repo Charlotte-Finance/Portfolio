@@ -1,25 +1,25 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/tab.dart';
 
 class ContactPage extends StatefulWidget {
-  final Language language;
+  final MyTab tab;
 
-  const ContactPage({required this.language});
+  const ContactPage({required this.tab});
 
   @override
-  State<StatefulWidget> createState() => ContactPageState(language: language);
+  State<StatefulWidget> createState() => ContactPageState(tab: tab);
 }
 
 class ContactPageState extends State<ContactPage> {
-  Language language;
+  MyTab tab;
 
-  ContactPageState({required this.language});
+  ContactPageState({required this.tab});
 
   @override
   Widget build(BuildContext context) {
-    language = widget.language;
+    tab = widget.tab;
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height,
@@ -36,7 +36,7 @@ class ContactPageState extends State<ContactPage> {
             ),
             Text("\n"),
             AutoSizeText(
-              language.titles.contact,
+              tab.title,
               style: TextStyle(fontSize: 50, color: Colors.white),
               maxLines: 1,
             ),

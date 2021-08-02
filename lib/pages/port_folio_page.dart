@@ -40,35 +40,35 @@ class PortFolioPageState extends State<PortFolioPage> {
             image: AssetImage('lib/assets/rainbow_keyboard.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: HomePage(language: this.language),
+            child: HomePage(tab: this.language.tabs[0]),
           );
         } else if (state is PortFolioWhoAmI) {
           return Structure(
             image: AssetImage('lib/assets/white_desk.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: WhoAmIPage(language: this.language),
+            child: WhoAmIPage(tab: this.language.tabs[1]),
           );
         } else if (state is PortFolioCV) {
           return Structure(
             image: AssetImage('lib/assets/keyboard.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: CVPage(language: this.language),
+            child: CVPage(tab: this.language.tabs[2]),
           );
         } else if (state is PortFolioMyProjects) {
           return Structure(
             image: AssetImage('lib/assets/light_bulbs.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: MyProjectsPage(language: this.language),
+            child: MyProjectsPage(tab: this.language.tabs[3]),
           );
         } else if (state is PortFolioContact) {
           return Structure(
             image: AssetImage('lib/assets/binary.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: ContactPage(language: this.language),
+            child: ContactPage(tab: this.language.tabs[4]),
           );
         }
         return Center(

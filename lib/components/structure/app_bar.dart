@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/blocs/portfolio_bloc.dart';
 import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/tab.dart';
 import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/languages.dart';
 import 'package:portfolio/utils/routes/routing_constants.dart';
@@ -41,13 +42,7 @@ class MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     language = widget.language;
-    List<String> tabs = [
-      language.tabs.homePageTab,
-      language.tabs.whoAmITab,
-      language.tabs.cvTab,
-      language.tabs.myProjectsTab,
-      language.tabs.contactTab
-    ];
+    List<MyTab> tabs = language.tabs;
     List events = [
       FetchHomePage(),
       FetchWhoAmI(),
@@ -81,7 +76,7 @@ class MyAppBarState extends State<MyAppBar> {
                     child: Container(
                       child: Center(
                         child: Text(
-                          tabs[i],
+                          tabs[i].name,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -111,7 +106,7 @@ class MyAppBarState extends State<MyAppBar> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.contain,
-                                  image: language.image,
+                                  image: language.flag,
                                 ),
                               ),
                             ),
@@ -135,7 +130,7 @@ class MyAppBarState extends State<MyAppBar> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.contain,
-                                      image: language.image,
+                                      image: language.flag,
                                     ),
                                   ),
                                 ),

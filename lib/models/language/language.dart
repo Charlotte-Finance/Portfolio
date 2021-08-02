@@ -5,14 +5,12 @@ import 'tab.dart';
 
 class Language {
   final String name;
-  final Tab tabs;
-  final LanguageTitle titles;
-  final AssetImage image;
+  final List<MyTab> tabs;
+  final AssetImage flag;
 
   Language({
     required this.name,
     required this.tabs,
-    required this.titles,
-    required this.image,
+    required this.flag,
   });
 }

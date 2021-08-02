@@ -1,49 +1,58 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/tab.dart';
 
 class MyProjectsPage extends StatefulWidget {
-  final Language language;
+  final MyTab tab;
 
-  const MyProjectsPage({required this.language});
+  const MyProjectsPage({required this.tab});
 
   @override
   State<StatefulWidget> createState() =>
-      MyProjectsPageState(language: language);
+      MyProjectsPageState(tab: tab);
 }
 
 class MyProjectsPageState extends State<MyProjectsPage> {
-  Language language;
+  MyTab tab;
 
-  MyProjectsPageState({required this.language});
+  MyProjectsPageState({required this.tab});
 
   @override
   Widget build(BuildContext context) {
-    language = widget.language;
-    return Center(
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width * 0.7,
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.35,
+    tab = widget.tab;
+    return Column(
+      children: [
+        Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                ),
+                AutoSizeText(
+                  "Charlotte Finance",
+                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  maxLines: 1,
+                ),
+                Text("\n"),
+                AutoSizeText(
+                  tab.title,
+                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  maxLines: 1,
+                ),
+              ],
             ),
-            AutoSizeText(
-              "Charlotte Finance",
-              style: TextStyle(fontSize: 50, color: Colors.white),
-              maxLines: 1,
-            ),
-            Text("\n"),
-            AutoSizeText(
-              language.titles.myProjects,
-              style: TextStyle(fontSize: 50, color: Colors.white),
-              maxLines: 1,
-            ),
-          ],
+          ),
         ),
-      ),
+        Container(
+          color: Colors.white,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+        ),
+      ],
     );
   }
 }
