@@ -14,7 +14,7 @@ class PortFolioHomePage extends PortFolioState {
   List<Object> get props => [];
 }
 
-class PortFolioWhoAmI extends PortFolioState {
+class PortFolioSkills extends PortFolioState {
   @override
   List<Object> get props => [];
 }

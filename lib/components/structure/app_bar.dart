@@ -30,7 +30,7 @@ class MyAppBarState extends State<MyAppBar> {
 
   final List directions = [
     HomePageRoute,
-    WhoAmIRoute,
+    SkillsRoute,
     CVRoute,
     MyProjectsRoute,
     ContactRoute,
@@ -45,7 +45,7 @@ class MyAppBarState extends State<MyAppBar> {
     List<MyTab> tabs = language.tabs;
     List events = [
       FetchHomePage(),
-      FetchWhoAmI(),
+      FetchSkills(),
       FetchCV(),
       FetchMyProjects(),
       FetchContact()

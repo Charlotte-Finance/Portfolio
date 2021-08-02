@@ -29,12 +29,7 @@ class ContactPageState extends State<ContactPage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.35,
             ),
-            AutoSizeText(
-              "Charlotte Finance",
-              style: TextStyle(fontSize: 50, color: Colors.white),
-              maxLines: 1,
-            ),
-            Text("\n"),
+
             AutoSizeText(
               tab.title,
               style: TextStyle(fontSize: 50, color: Colors.white),

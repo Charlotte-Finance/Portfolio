@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/blocs/portfolio_bloc.dart';
 import 'package:portfolio/components/structure/structure.dart';
+import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/language.dart';
 import 'package:portfolio/pages/home_page.dart';
-import 'package:portfolio/pages/who_am_i.dart';
 
 import 'contact.dart';
 import 'cv.dart';
 import 'my_projects.dart';
+import 'my_skills.dart';
 
 class PortFolioPage extends StatefulWidget {
   final Language language;
@@ -40,14 +41,14 @@ class PortFolioPageState extends State<PortFolioPage> {
             image: AssetImage('lib/assets/rainbow_keyboard.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: HomePage(tab: this.language.tabs[0]),
+            child: HomePage(tab: this.language.tabs[0] as HomePageTab),
           );
-        } else if (state is PortFolioWhoAmI) {
+        } else if (state is PortFolioSkills) {
           return Structure(
-            image: AssetImage('lib/assets/white_desk.jpg'),
+            image: AssetImage('lib/assets/light_bulbs.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: WhoAmIPage(tab: this.language.tabs[1]),
+            child: SkillsPage(tab: this.language.tabs[1]),
           );
         } else if (state is PortFolioCV) {
           return Structure(
@@ -58,7 +59,7 @@ class PortFolioPageState extends State<PortFolioPage> {
           );
         } else if (state is PortFolioMyProjects) {
           return Structure(
-            image: AssetImage('lib/assets/light_bulbs.jpg'),
+            image: AssetImage('lib/assets/blue_camera.jpg'),
             language: this.language,
             onChanged: onChanged,
             child: MyProjectsPage(tab: this.language.tabs[3]),

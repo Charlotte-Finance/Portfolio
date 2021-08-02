@@ -15,8 +15,8 @@ class PortFolioBloc extends Bloc<PortFolioEvent, PortFolioState> {
     if (event is FetchHomePage) {
       yield PortFolioHomePage();
     }
-    if (event is FetchWhoAmI) {
-      yield PortFolioWhoAmI();
+    if (event is FetchSkills) {
+      yield PortFolioSkills();
     }
     if (event is FetchCV) {
       yield PortFolioCV();

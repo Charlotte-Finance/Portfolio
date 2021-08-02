@@ -24,10 +24,10 @@ class RouteGenerator {
           return _errorRoute();
         }
 
-      case WhoAmIRoute:
+      case SkillsRoute:
         if (args is Language) {
           return PageRouteBuilder(
-            settings: RouteSettings(name: WhoAmIRoute),
+            settings: RouteSettings(name: SkillsRoute),
             transitionDuration: Duration(seconds: 0),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {

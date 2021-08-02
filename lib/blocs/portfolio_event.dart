@@ -9,7 +9,7 @@ class FetchHomePage extends PortFolioEvent {
   List<Object> get props => [];
 }
 
-class FetchWhoAmI extends PortFolioEvent {
+class FetchSkills extends PortFolioEvent {
   @override
   List<Object> get props => [];
 }

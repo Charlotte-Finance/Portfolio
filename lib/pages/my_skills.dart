@@ -3,19 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/language/tab.dart';
 
-class WhoAmIPage extends StatefulWidget {
+class SkillsPage extends StatefulWidget {
   final MyTab tab;
 
-  const WhoAmIPage({required this.tab});
+  const SkillsPage({required this.tab});
 
   @override
-  State<StatefulWidget> createState() => WhoAmIPageState(tab: tab);
+  State<StatefulWidget> createState() => SkillsPageState(tab: tab);
 }
 
-class WhoAmIPageState extends State<WhoAmIPage> {
+class SkillsPageState extends State<SkillsPage> {
     MyTab tab;
 
-  WhoAmIPageState({required this.tab});
+  SkillsPageState({required this.tab});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,6 @@ class WhoAmIPageState extends State<WhoAmIPage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.35,
             ),
-            AutoSizeText(
-              "Charlotte Finance",
-              style: TextStyle(fontSize: 50, color: Colors.white),
-              maxLines: 1,
-            ),
-            Text("\n"),
             AutoSizeText(
               tab.title,
               style: TextStyle(fontSize: 50, color: Colors.white),

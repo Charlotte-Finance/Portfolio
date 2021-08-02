@@ -1,11 +1,11 @@
 part of 'widgets.dart';
 
-class IconDetails extends StatelessWidget {
+class HorizontalIconDetails extends StatelessWidget {
   final IconData icon;
   final String title;
   final String details;
 
-  const IconDetails(
+  const HorizontalIconDetails(
       {required this.icon, required this.title, required this.details});
 
   @override
@@ -21,12 +21,12 @@ class IconDetails extends StatelessWidget {
             children: [
               AutoSizeText(
                 title,
-                style: boldStyle,
+                style: darkBoldStyle,
                 maxLines: 1,
               ),
               AutoSizeText(
                 details,
-                style: bodyStyle,
+                style: darkBodyStyle,
                 maxLines: 3,
               ),
             ],
@@ -37,6 +37,42 @@ class IconDetails extends StatelessWidget {
   }
 }
 
+
+
+class VerticalIconDetails extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String details;
+
+  const VerticalIconDetails(
+      {required this.icon, required this.title, required this.details});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CircleIcon(icon: icon),
+        SizedBox(height: 40),
+        Column(
+          children: [
+            AutoSizeText(
+              title,
+              style: lightBoldStyle,
+              maxLines: 1,
+            ),
+            AutoSizeText(
+              details,
+              style: lightBodyStyle,
+              maxLines: 3,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+
 class CircleIcon extends StatelessWidget {
   final IconData icon;
 
@@ -44,6 +80,19 @@ class CircleIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.orange,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(50))
+        ),
+        child: Padding(padding: EdgeInsets.all(20), child: Icon(
+          icon,
+          size: 40.0,
+          color: Colors.orange,
+        ),),
+    );
     return CircleAvatar(
       radius: 41,
       backgroundColor: Colors.orange,
