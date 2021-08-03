@@ -3,6 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/styles.dart';
 
-part 'image_title.dart';
+part 'titles.dart';
 
 part 'icons.dart';

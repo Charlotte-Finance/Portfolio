@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/pages/port_folio_page.dart';
-import 'package:portfolio/utils/languages.dart';
+import 'package:portfolio/utils/language/languages.dart';
 import 'package:portfolio/utils/routes/route_generator.dart';
 import 'package:portfolio/utils/routes/routing_constants.dart';
 

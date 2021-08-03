@@ -6,7 +6,7 @@ part 'portfolio_event.dart';
 part 'portfolio_state.dart';
 
 class PortFolioBloc extends Bloc<PortFolioEvent, PortFolioState> {
-  PortFolioBloc() : super(PortFolioHomePage());
+  PortFolioBloc() : super(PortFolioSkills());
 
   @override
   Stream<PortFolioState> mapEventToState(

@@ -5,6 +5,7 @@ import 'package:portfolio/blocs/portfolio_bloc.dart';
 import 'package:portfolio/components/structure/structure.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/my_skills.dart';
 import 'package:portfolio/pages/home_page.dart';
 import 'package:portfolio/utils/styles.dart';
 
@@ -50,7 +51,7 @@ class PortFolioPageState extends State<PortFolioPage> {
             image: AssetImage('lib/assets/light_bulbs.jpg'),
             language: this.language,
             onChanged: onChanged,
-            child: SkillsPage(tab: this.language.tabs[1]),
+            child: SkillsPage(tab: this.language.tabs[1] as MySkillsTab),
           );
         } else if (state is PortFolioCV) {
           return Structure(

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 late TextStyle imageTitleStyle;
+late TextStyle imageBorderTitleStyle;
 
 late TextStyle darkTitleStyle;
 late TextStyle lightTitleStyle;
@@ -17,7 +18,16 @@ late TextStyle lightBodyStyle;
 
 void createStyles(BuildContext context) {
   imageTitleStyle = TextStyle(
-      fontSize: MediaQuery.of(context).size.width * 0.030, color: Colors.white);
+    fontSize: MediaQuery.of(context).size.width * 0.040,
+    color: Colors.white,
+  );
+  imageBorderTitleStyle = TextStyle(
+    fontSize: MediaQuery.of(context).size.width * 0.040,
+    foreground: Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..color = Colors.black,
+  );
 
   darkTitleStyle = TextStyle(
       fontSize: MediaQuery.of(context).size.width * 0.025,

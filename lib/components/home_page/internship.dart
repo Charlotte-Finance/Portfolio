@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/language/home_page.dart';
@@ -18,24 +17,12 @@ class Internship extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: AutoSizeText(
-                internshipLanguage.title,
-                style: darkTitleStyle,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-              ),
-            ),
+          WidgetTitle(
+            title: internshipLanguage.title,
+            subTitle: internshipLanguage.subTitle,
+            titleStyle: darkTitleStyle,
+            subtitleStyle: darkSubTitleStyle,
           ),
-          SizedBox(height: 10),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(internshipLanguage.subTitle, style: darkSubTitleStyle),
-          ),
-          SizedBox(height: 50),
           Container(
             width: MediaQuery.of(context).size.width * 0.5,
             child: Row(

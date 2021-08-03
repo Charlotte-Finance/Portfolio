@@ -24,7 +24,7 @@ class HomePageState extends State<HomePage> {
     tab = widget.tab;
     return Column(
       children: [
-        ImageTitle(title: tab.title),
+        ImageTitle(title: tab.title, height: MediaQuery.of(context).size.height * 0.35,),
         Internship(internshipLanguage: tab.internshipLanguage),
         Education(educationLanguage: tab.educationLanguage),
       ],

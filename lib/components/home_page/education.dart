@@ -25,17 +25,12 @@ class Education extends StatelessWidget {
             padding: EdgeInsets.only(top: 50, bottom: 50),
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(educationLanguage.title, style: lightTitleStyle),
+                WidgetTitle(
+                  title: educationLanguage.title,
+                  subTitle: educationLanguage.subTitle,
+                  titleStyle: lightTitleStyle,
+                  subtitleStyle: lightSubTitleStyle,
                 ),
-                SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(educationLanguage.subTitle,
-                      style: lightSubTitleStyle),
-                ),
-                SizedBox(height: 50),
                 Container(
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width * 0.6,

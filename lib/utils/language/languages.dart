@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/my_skills.dart';
 import 'package:portfolio/models/language/tab.dart';
 import 'package:portfolio/utils/language/home_page/education.dart';
+import 'package:portfolio/utils/language/my_skills/it_skills.dart';
+import 'package:portfolio/utils/language/my_skills/organizational_skills.dart';
+import 'package:portfolio/utils/language/my_skills/speaking_skills.dart';
 
-import 'language/home_page/internship.dart';
+import 'home_page/internship.dart';
 
 HomePageTab homePageFr = HomePageTab(
   name: "Accueil",
@@ -12,14 +16,35 @@ HomePageTab homePageFr = HomePageTab(
   internshipLanguage: internshipLanguageFr,
   educationLanguage: educationLanguageFr,
 );
+HomePageTab homePageEn = HomePageTab(
+  name: "HomePage",
+  title: "Looking for an internship in Web/Mobile development",
+  internshipLanguage: internshipLanguageEn,
+  educationLanguage: educationLanguageEn,
+);
+
+MySkillsTab skillsFr = MySkillsTab(
+  name: "Mes compétences",
+  title: "Mes compétences",
+  itSkillsLanguage: itSkillsLanguageFr,
+  speakingSkillsLanguage: speakingSkillsLanguageFr,
+  organizationalSkillsLanguage: organizationalSkillsLanguageFr,
+);
+
+MySkillsTab skillsEn = MySkillsTab(
+  name: "My Skills",
+  title: "My Skills",
+  itSkillsLanguage: itSkillsLanguageEn,
+  speakingSkillsLanguage: speakingSkillsLanguageEn,
+  organizationalSkillsLanguage: organizationalSkillsLanguageEn,
+);
+
+
 MyTab myProjectsFr = MyTab(
   name: "Mes projets",
   title: "Mes projets",
 );
-MyTab skillsFr = MyTab(
-  name: "Mes compétences",
-  title: "Mes compétences",
-);
+
 MyTab cvFr = MyTab(
   name: "CV",
   title: "CV",
@@ -29,19 +54,9 @@ MyTab contactFr = MyTab(
   title: "Pour me contacter...",
 );
 
-HomePageTab homePageEn = HomePageTab(
-  name: "HomePage",
-  title: "Looking for an internship in Web/Mobile development",
-  internshipLanguage: internshipLanguageEn,
-  educationLanguage: educationLanguageEn,
-);
 MyTab myProjectsEn = MyTab(
   name: "My Projects",
   title: "My projects",
-);
-MyTab skillsEn = MyTab(
-  name: "My Skills",
-  title: "My Skills",
 );
 MyTab cvEn = MyTab(
   name: "CV",

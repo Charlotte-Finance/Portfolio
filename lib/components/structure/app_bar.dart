@@ -4,7 +4,7 @@ import 'package:portfolio/blocs/portfolio_bloc.dart';
 import 'package:portfolio/models/language/language.dart';
 import 'package:portfolio/models/language/tab.dart';
 import 'package:portfolio/utils/colors.dart';
-import 'package:portfolio/utils/languages.dart';
+import 'package:portfolio/utils/language/languages.dart';
 import 'package:portfolio/utils/routes/routing_constants.dart';
 import 'package:provider/provider.dart';
 
@@ -91,7 +91,7 @@ class MyAppBarState extends State<MyAppBar> {
           Expanded(
             child: Row(
               children: [
-                Container(width: MediaQuery.of(context).size.width * 0.05),
+                Container(width: MediaQuery.of(context).size.width * 0.0025),
                 Expanded(
                   child: Container(
                     color: myGrey,
