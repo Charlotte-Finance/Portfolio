@@ -10,7 +10,7 @@ class ImageTitle extends StatelessWidget {
     return Center(
       child: Container(
         height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width * 0.7,
         child: Column(
           children: [
             SizedBox(

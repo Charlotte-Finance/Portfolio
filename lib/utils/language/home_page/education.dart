@@ -2,13 +2,11 @@ import 'package:portfolio/models/language/home_page.dart';
 
 Detail diplomaDetailFr = Detail(
   title: "Baccalauréat Scientifique",
-  detail:
-      "Mention Bien",
+  detail: "Mention Bien",
 );
 Detail prepaDetailFr = Detail(
-  title: "Classe Préparatoire aux Grandes Ecoles",
-  detail:
-      "Spécialité Mathématiques et Physique",
+  title: "Classe Préparatoire",
+  detail: "Spécialité Mathématiques et Physique",
 );
 
 Detail schoolDetailFr = Detail(
@@ -18,14 +16,12 @@ Detail schoolDetailFr = Detail(
 
 Detail diplomaDetailEn = Detail(
   title: "French Scientific baccalaureate",
-  detail:
-  "With Honours",
+  detail: "With Honours",
 );
 
 Detail prepaDetailEn = Detail(
-  title: "Preparatory class for the Grandes Ecoles",
-  detail:
-  "2 years of intense courses in Mathematics and physic",
+  title: "Preparatory class",
+  detail: "2 years of intense courses in Mathematics and physic",
 );
 
 Detail schoolDetailEn = Detail(

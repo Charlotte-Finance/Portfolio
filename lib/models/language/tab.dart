@@ -1,4 +1,3 @@
-
 class MyTab {
   String name;
   String title;
@@ -8,4 +7,3 @@ class MyTab {
     required this.title,
   });
 }
-

@@ -13,7 +13,7 @@ class HorizontalIconDetails extends StatelessWidget {
     return Row(
       children: [
         CircleIcon(icon: icon),
-        SizedBox(width: 50),
+        SizedBox(width: MediaQuery.of(context).size.width * 0.02),
         Container(
           width: MediaQuery.of(context).size.width * 0.15,
           child: Column(
@@ -37,8 +37,6 @@ class HorizontalIconDetails extends StatelessWidget {
   }
 }
 
-
-
 class VerticalIconDetails extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -59,11 +57,13 @@ class VerticalIconDetails extends StatelessWidget {
               title,
               style: lightBoldStyle,
               maxLines: 1,
+              textAlign: TextAlign.center,
             ),
             AutoSizeText(
               details,
               style: lightBodyStyle,
               maxLines: 3,
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -71,7 +71,6 @@ class VerticalIconDetails extends StatelessWidget {
     );
   }
 }
-
 
 class CircleIcon extends StatelessWidget {
   final IconData icon;
@@ -81,28 +80,16 @@ class CircleIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.orange,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(50))
-        ),
-        child: Padding(padding: EdgeInsets.all(20), child: Icon(
-          icon,
-          size: 40.0,
-          color: Colors.orange,
-        ),),
-    );
-    return CircleAvatar(
-      radius: 41,
-      backgroundColor: Colors.orange,
-      child: CircleAvatar(
-        foregroundColor: Colors.black87,
-        backgroundColor: Colors.white,
-        radius: 40,
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.orange,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(40))),
+      child: Padding(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
         child: Icon(
           icon,
-          size: 40.0,
+          size: MediaQuery.of(context).size.width * 0.02,
           color: Colors.orange,
         ),
       ),

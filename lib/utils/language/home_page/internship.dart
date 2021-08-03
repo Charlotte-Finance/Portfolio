@@ -1,4 +1,3 @@
-
 import 'package:portfolio/models/language/home_page.dart';
 
 Detail fieldDetailFr = Detail(
@@ -33,8 +32,7 @@ Detail fieldDetailEn = Detail(
 );
 Detail areaDetailEn = Detail(
   title: "Canada / Thailand",
-  detail:
-      "To bring together a place rich in culture and highly regarded in IT",
+  detail: "To bring together a place rich in culture and highly regarded in IT",
 );
 // ToDo : change text
 Detail durationDetailEn = Detail(

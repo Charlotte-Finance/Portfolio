@@ -22,56 +22,52 @@ class Education extends StatelessWidget {
             ),
           ),
           child: Container(
-            height: 600,
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(top: 50, bottom: 50),
-          height: MediaQuery.of(context).size.height * 0.5,
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Text(educationLanguage.title, style: lightTitleStyle),
-              ),
-              SizedBox(height: 10),
-              Align(
-                alignment: Alignment.topCenter,
-                child:
-                    Text(educationLanguage.subTitle, style: lightSubTitleStyle),
-              ),
-              SizedBox(height: 100),
-              Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: VerticalIconDetails(
-                        icon: Icons.menu_book,
-                        title: educationLanguage.diplomaDetail.title,
-                        details: educationLanguage.diplomaDetail.detail,
-                      ),
-                    ),
-                    Expanded(
-                      child: VerticalIconDetails(
-                        icon: Icons.science_outlined,
-                        title: educationLanguage.prepaDetail.title,
-                        details: educationLanguage.prepaDetail.detail,
-                      ),
-                    ),
-                    Expanded(
-                      child: VerticalIconDetails(
-                        icon: Icons.school,
-                        title: educationLanguage.schoolDetail.title,
-                        details: educationLanguage.schoolDetail.detail,
-                      ),
-                    ),
-                  ],
+            padding: EdgeInsets.only(top: 50, bottom: 50),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(educationLanguage.title, style: lightTitleStyle),
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(educationLanguage.subTitle,
+                      style: lightSubTitleStyle),
+                ),
+                SizedBox(height: 50),
+                Container(
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: VerticalIconDetails(
+                          icon: Icons.menu_book,
+                          title: educationLanguage.diplomaDetail.title,
+                          details: educationLanguage.diplomaDetail.detail,
+                        ),
+                      ),
+                      Expanded(
+                        child: VerticalIconDetails(
+                          icon: Icons.science_outlined,
+                          title: educationLanguage.prepaDetail.title,
+                          details: educationLanguage.prepaDetail.detail,
+                        ),
+                      ),
+                      Expanded(
+                        child: VerticalIconDetails(
+                          icon: Icons.school,
+                          title: educationLanguage.schoolDetail.title,
+                          details: educationLanguage.schoolDetail.detail,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

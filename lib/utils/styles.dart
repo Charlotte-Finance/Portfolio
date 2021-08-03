@@ -1,16 +1,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-TextStyle imageTitleStyle = TextStyle(fontSize: 60, color: Colors.white);
+late TextStyle imageTitleStyle;
 
-TextStyle darkTitleStyle = TextStyle(fontSize: 50, color: Colors.black87);
-TextStyle darkSubTitleStyle = TextStyle(fontSize: 30, color: Colors.black45);
+late TextStyle darkTitleStyle;
+late TextStyle lightTitleStyle;
 
-TextStyle lightTitleStyle = TextStyle(fontSize: 50, color: Colors.white);
-TextStyle lightSubTitleStyle = TextStyle(fontSize: 30, color: Colors.white70);
+late TextStyle darkSubTitleStyle;
+late TextStyle lightSubTitleStyle;
 
-TextStyle darkBoldStyle = TextStyle(fontSize: 15, color: Colors.black87, fontWeight: FontWeight.bold);
-TextStyle darkBodyStyle = TextStyle(fontSize: 10, color: Colors.black45);
+late TextStyle darkBoldStyle;
+late TextStyle lightBoldStyle;
 
-TextStyle lightBoldStyle = TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold);
-TextStyle lightBodyStyle = TextStyle(fontSize: 10, color: Colors.white70);
+late TextStyle darkBodyStyle;
+late TextStyle lightBodyStyle;
+
+void createStyles(BuildContext context) {
+  imageTitleStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.030, color: Colors.white);
+
+  darkTitleStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.025,
+      color: Colors.black87);
+  lightTitleStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.025, color: Colors.white);
+
+  darkSubTitleStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.015,
+      color: Colors.black45);
+  lightSubTitleStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.015,
+      color: Colors.white70);
+
+  darkBoldStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.005,
+      color: Colors.black87,
+      fontWeight: FontWeight.bold);
+  lightBoldStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.005,
+      color: Colors.white,
+      fontWeight: FontWeight.bold);
+
+  darkBodyStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.005,
+      color: Colors.black45);
+  lightBodyStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.005,
+      color: Colors.white70);
+}

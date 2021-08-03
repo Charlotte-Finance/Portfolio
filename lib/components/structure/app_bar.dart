@@ -64,14 +64,16 @@ class MyAppBarState extends State<MyAppBar> {
                   child: InkWell(
                     onTap: () {
                       context.read<PortFolioBloc>().add(events[i]);
-                      WidgetsBinding.instance!.addPostFrameCallback((_) {
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          directions[i],
-                          ModalRoute.withName(directions[i]),
-                          arguments: language,
-                        );
-                      });
+                      WidgetsBinding.instance!.addPostFrameCallback(
+                        (_) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            directions[i],
+                            ModalRoute.withName(directions[i]),
+                            arguments: language,
+                          );
+                        },
+                      );
                     },
                     child: Container(
                       child: Center(
@@ -89,7 +91,7 @@ class MyAppBarState extends State<MyAppBar> {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: Container()),
+                Container(width: MediaQuery.of(context).size.width * 0.05),
                 Expanded(
                   child: Container(
                     color: myGrey,
@@ -102,7 +104,7 @@ class MyAppBarState extends State<MyAppBar> {
                           children: [
                             Container(
                               height: 30,
-                              width: 30,
+                              width: MediaQuery.of(context).size.width * 0.014,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   fit: BoxFit.contain,
@@ -111,7 +113,7 @@ class MyAppBarState extends State<MyAppBar> {
                               ),
                             ),
                             SizedBox(
-                              width: 25,
+                              width: MediaQuery.of(context).size.width * 0.012,
                             ),
                             Text(
                               language.name,
@@ -126,7 +128,8 @@ class MyAppBarState extends State<MyAppBar> {
                               children: [
                                 Container(
                                   height: 30,
-                                  width: 30,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.014,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.contain,
@@ -135,7 +138,8 @@ class MyAppBarState extends State<MyAppBar> {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 25,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.012,
                                 ),
                                 Text(
                                   language.name,

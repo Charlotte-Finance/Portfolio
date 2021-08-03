@@ -17,14 +17,16 @@ class AppBlocObserver extends BlocObserver {
 
 void main() {
   Bloc.observer = AppBlocObserver();
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (BuildContext context) => PortFolioBloc(),
-      ),
-    ],
-    child: MyApp(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => PortFolioBloc(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
             },
             pageBuilder: (context, animation, secondaryAnimation) =>
                 PortFolioPage(language: languageEn),
-          )
+          ),
         ];
       },
     );

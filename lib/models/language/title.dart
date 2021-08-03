@@ -1,13 +1,13 @@
 class LanguageTitle {
   String homePage;
-  String Skills;
+  String skills;
   String cv;
   String myProjects;
   String contact;
 
   LanguageTitle({
     required this.homePage,
-    required this.Skills,
+    required this.skills,
     required this.cv,
     required this.myProjects,
     required this.contact,

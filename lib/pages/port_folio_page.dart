@@ -6,6 +6,7 @@ import 'package:portfolio/components/structure/structure.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/language.dart';
 import 'package:portfolio/pages/home_page.dart';
+import 'package:portfolio/utils/styles.dart';
 
 import 'contact.dart';
 import 'cv.dart';
@@ -34,6 +35,7 @@ class PortFolioPageState extends State<PortFolioPage> {
 
   @override
   Widget build(BuildContext context) {
+    createStyles(context);
     return BlocBuilder<PortFolioBloc, PortFolioState>(
       builder: (context, state) {
         if (state is PortFolioHomePage) {

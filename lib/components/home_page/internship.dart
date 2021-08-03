@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/language/home_page.dart';
@@ -19,7 +20,15 @@ class Internship extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Text(internshipLanguage.title, style: darkTitleStyle),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: AutoSizeText(
+                internshipLanguage.title,
+                style: darkTitleStyle,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
           SizedBox(height: 10),
           Align(
@@ -71,7 +80,7 @@ class Internship extends StatelessWidget {
                         details: internshipLanguage.companyDetail.detail,
                       ),
                       SizedBox(height: 50),
-                      SizedBox(height: 82),
+                      SizedBox(height: 70),
                     ],
                   ),
                 ),
