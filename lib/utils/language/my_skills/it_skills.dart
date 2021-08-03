@@ -28,27 +28,62 @@ List<SkillDetail> itLanguages = [
   matLabLanguage,
 ];
 
-SkillDetail flutterSkill = SkillDetail(title: "Flutter",
-    percent: 0.9,
-    image: AssetImage('lib/assets/flutter.png'));
+SkillDetail flutterSkill = SkillDetail(
+  title: "Flutter",
+  percent: 0.9,
+  image: AssetImage('lib/assets/flutter.png'),
+);
 SkillDetail djangoSkill = SkillDetail(
-    title: "Django", percent: 0.9, image: AssetImage('lib/assets/django.png'));
+  title: "Django",
+  percent: 0.9,
+  image: AssetImage('lib/assets/django.png'),
+);
 SkillDetail flaskSkill = SkillDetail(
-    title: "Flask", percent: 0.9, image: AssetImage('lib/assets/flask.png'));
-SkillDetail springBootSkill = SkillDetail(title: "Spring Boot",
-    percent: 0.3,
-    image: AssetImage('lib/assets/springboot.png'));
-SkillDetail laravelSkill = SkillDetail(title: "Laravel",
-    percent: 0.3,
-    image: AssetImage('lib/assets/laravel.png'));
+  title: "Flask",
+  percent: 0.9,
+  image: AssetImage('lib/assets/flask.png'),
+);
+SkillDetail springBootSkill = SkillDetail(
+  title: "Spring Boot",
+  percent: 0.3,
+  image: AssetImage('lib/assets/springboot.png'),
+);
+SkillDetail laravelSkill = SkillDetail(
+  title: "Laravel",
+  percent: 0.3,
+  image: AssetImage('lib/assets/laravel.png'),
+);
+SkillDetail mssqlSkill = SkillDetail(
+  title: "Microsoft SQL Server",
+  percent: 1.0,
+  image: AssetImage('lib/assets/mssql.jpg'),
+);
+SkillDetail mySQLSkill = SkillDetail(
+  title: "My SQL",
+  percent: 1.0,
+  image: AssetImage('lib/assets/mysql.png'),
+);
+SkillDetail mongoDBSkill = SkillDetail(
+  title: "My SQL",
+  percent: 1.0,
+  image: AssetImage('lib/assets/mongodb.png'),
+);
 
 List<SkillDetail> technologySkills = [
-flutterSkill, djangoSkill, flaskSkill, springBootSkill, laravelSkill,];
+  flutterSkill,
+  djangoSkill,
+  flaskSkill,
+  springBootSkill,
+  laravelSkill,
+  mssqlSkill,
+  mySQLSkill,
+  mongoDBSkill,
+];
 
 ITSkillsLanguage itSkillsLanguageFr = ITSkillsLanguage(
   title: "Compétences informatiques",
   subTitle:
-  "Compétences acquises durant ma formation et grâce à mes expériences professionnelles",
+      "Compétences acquises durant ma formation et grâce à mes expériences professionnelles",
   languages: itLanguages,
   technologies: technologySkills,
 );
@@ -56,7 +91,7 @@ ITSkillsLanguage itSkillsLanguageFr = ITSkillsLanguage(
 ITSkillsLanguage itSkillsLanguageEn = ITSkillsLanguage(
   title: "IT Skills",
   subTitle:
-  "Skills acquired during my training and through my professional experiences",
+      "Skills acquired during my training and through my professional experiences",
   languages: itLanguages,
   technologies: technologySkills,
 );

@@ -37,6 +37,7 @@ class ITSkills extends StatelessWidget {
                           i < itSkillsLanguage.languages.length;
                           i++) ...[
                         LinearPercentIndicator(
+                          // ToDo : Remettre en MediaQuery
                           backgroundColor: Colors.white70,
                           width: MediaQuery.of(context).size.width * 0.2,
                           animation: true,
@@ -57,42 +58,50 @@ class ITSkills extends StatelessWidget {
                           progressColor: Colors.white,
                         ),
                         SizedBox(
-                          height: 20,
-                        )
-                      ]
+                          height: 30,
+                        ),
+                      ],
                     ],
                   ),
                 ),
                 Expanded(
-                  child: Row(
+                  child: Column(
                     children: [
-                      Column(
-                        children: [
-                          CircularPercentIndicator(
-                            backgroundColor: Colors.white70,
-
-                            radius: 120.0,
-                            lineWidth: 13.0,
-                            animation: true,
-                            percent: 0.7,
-                            center: new Text(
-                              "70.0%",
-                              style:
-                              new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                            ),
-                            footer: null,
-                            circularStrokeCap: CircularStrokeCap.round,
-                            progressColor: Colors.white,
-                          ),
-                          SizedBox(height: 50,),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.white70,
-                          ),
-                        ],
-                      ),
-                      Column(),
+                      for (int i = 0;
+                          i < itSkillsLanguage.technologies.length;
+                          i += 3) ...[
+                        Row(
+                          children: [
+                            for (int j = i; j < i + 3; j++) ...[
+                              if (j < itSkillsLanguage.technologies.length) ...[
+                                Text("$j"),
+                                CircularPercentIndicator(
+                                  backgroundColor: Colors.white70,
+                                  radius: 140.0,
+                                  lineWidth: 13.0,
+                                  animation: true,
+                                  percent:
+                                      itSkillsLanguage.technologies[j].percent,
+                                  center: Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.contain,
+                                        image: itSkillsLanguage
+                                            .technologies[j].image,
+                                      ),
+                                    ),
+                                  ),
+                                  footer: null,
+                                  circularStrokeCap: CircularStrokeCap.round,
+                                  progressColor: Colors.white,
+                                ),
+                              ],
+                            ],
+                          ],
+                        ),
+                      ]
                     ],
                   ),
                 ),
