@@ -31,8 +31,8 @@ class MyAppBarState extends State<MyAppBar> {
   final List directions = [
     HomePageRoute,
     SkillsRoute,
-    CVRoute,
     MyProjectsRoute,
+    CVRoute,
     ContactRoute,
   ];
   List<Language> languages = [languageEn, languageFr];
@@ -46,8 +46,8 @@ class MyAppBarState extends State<MyAppBar> {
     List events = [
       FetchHomePage(),
       FetchSkills(),
-      FetchCV(),
       FetchMyProjects(),
+      FetchCV(),
       FetchContact()
     ];
     return Container(

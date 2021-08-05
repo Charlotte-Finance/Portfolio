@@ -4,7 +4,7 @@ class ImageTitle extends StatelessWidget {
   final String title;
   final double height;
 
-  const ImageTitle({required this.title, required this.height});
+  const ImageTitle({required this.title, required this.height,});
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,14 @@ class WidgetTitle extends StatelessWidget {
   final String subTitle;
   final TextStyle titleStyle;
   final TextStyle subtitleStyle;
+  final Alignment alignment;
 
   const WidgetTitle({
     required this.title,
     required this.subTitle,
     required this.titleStyle,
     required this.subtitleStyle,
+    this.alignment = Alignment.topCenter
   });
 
   @override
@@ -58,7 +60,7 @@ class WidgetTitle extends StatelessWidget {
     return Column(
       children: [
         Align(
-          alignment: Alignment.topCenter,
+          alignment: alignment,
           child: Container(
             width: MediaQuery.of(context).size.width * 0.7,
             child: AutoSizeText(
@@ -71,10 +73,15 @@ class WidgetTitle extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Align(
-          alignment: Alignment.topCenter,
-          child: Text(
-            subTitle,
-            style: subtitleStyle,
+          alignment: alignment,
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: AutoSizeText(
+              subTitle,
+              style: subtitleStyle,
+              maxLines: 1,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         SizedBox(height: 50),

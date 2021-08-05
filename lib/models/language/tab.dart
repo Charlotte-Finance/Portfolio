@@ -1,6 +1,6 @@
 class MyTab {
-  String name;
-  String title;
+  final String name;
+  final String title;
 
   MyTab({
     required this.name,

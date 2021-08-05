@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/language.dart';
+import 'package:portfolio/models/language/my_projects.dart';
 import 'package:portfolio/models/language/my_skills.dart';
 import 'package:portfolio/models/language/tab.dart';
 import 'package:portfolio/utils/language/home_page/education.dart';
 import 'package:portfolio/utils/language/my_skills/it_skills.dart';
-import 'package:portfolio/utils/language/my_skills/organizational_skills.dart';
 import 'package:portfolio/utils/language/my_skills/speaking_skills.dart';
 
 import 'home_page/internship.dart';
+import 'my_projects/my_projects.dart';
+import 'my_skills/personal_skills.dart';
 
 HomePageTab homePageFr = HomePageTab(
   name: "Accueil",
@@ -28,7 +30,7 @@ MySkillsTab skillsFr = MySkillsTab(
   title: "Mes compétences",
   itSkillsLanguage: itSkillsLanguageFr,
   speakingSkillsLanguage: speakingSkillsLanguageFr,
-  organizationalSkillsLanguage: organizationalSkillsLanguageFr,
+  personalSkillsLanguage: personalSkillsLanguageFr,
 );
 
 MySkillsTab skillsEn = MySkillsTab(
@@ -36,13 +38,18 @@ MySkillsTab skillsEn = MySkillsTab(
   title: "My Skills",
   itSkillsLanguage: itSkillsLanguageEn,
   speakingSkillsLanguage: speakingSkillsLanguageEn,
-  organizationalSkillsLanguage: organizationalSkillsLanguageEn,
+  personalSkillsLanguage: personalSkillsLanguageEn,
 );
 
-
-MyTab myProjectsFr = MyTab(
+MyProjectsTab myProjectsFr = MyProjectsTab(
   name: "Mes projets",
   title: "Mes projets",
+  graphProject: graphProjectFr,
+);
+MyProjectsTab myProjectsEn = MyProjectsTab(
+  name: "My Projects",
+  title: "My projects",
+  graphProject: graphProjectEn,
 );
 
 MyTab cvFr = MyTab(
@@ -54,10 +61,6 @@ MyTab contactFr = MyTab(
   title: "Pour me contacter...",
 );
 
-MyTab myProjectsEn = MyTab(
-  name: "My Projects",
-  title: "My projects",
-);
 MyTab cvEn = MyTab(
   name: "CV",
   title: "My Resume",
@@ -67,8 +70,8 @@ MyTab contactEn = MyTab(
   title: "To contact me ...",
 );
 
-List<MyTab> myTabsFr = [homePageFr, skillsFr, cvFr, myProjectsFr, contactFr];
-List<MyTab> myTabsEn = [homePageEn, skillsEn, cvEn, myProjectsEn, contactEn];
+List<MyTab> myTabsFr = [homePageFr, skillsFr, myProjectsFr, cvFr, contactFr];
+List<MyTab> myTabsEn = [homePageEn, skillsEn, myProjectsEn, cvEn, contactEn];
 
 Language languageFr = Language(
   name: "Français",

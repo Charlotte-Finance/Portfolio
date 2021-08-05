@@ -1,9 +1,9 @@
 class LanguageTitle {
-  String homePage;
-  String skills;
-  String cv;
-  String myProjects;
-  String contact;
+  final String homePage;
+  final String skills;
+  final String cv;
+  final String myProjects;
+  final String contact;
 
   LanguageTitle({
     required this.homePage,

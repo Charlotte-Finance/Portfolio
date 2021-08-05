@@ -1,10 +1,10 @@
 import 'package:portfolio/models/language/tab.dart';
 
 class HomePageTab extends MyTab {
-  String name;
-  String title;
-  InternshipLanguage internshipLanguage;
-  EducationLanguage educationLanguage;
+  final String name;
+  final String title;
+  final InternshipLanguage internshipLanguage;
+  final EducationLanguage educationLanguage;
 
   HomePageTab({
     required this.name,
@@ -15,13 +15,13 @@ class HomePageTab extends MyTab {
 }
 
 class InternshipLanguage {
-  String title;
-  String subTitle;
-  Detail fieldDetail;
-  Detail areaDetail;
-  Detail durationDetail;
-  Detail calendarDetail;
-  Detail companyDetail;
+  final String title;
+  final String subTitle;
+  final Detail fieldDetail;
+  final Detail areaDetail;
+  final Detail durationDetail;
+  final Detail calendarDetail;
+  final Detail companyDetail;
 
   InternshipLanguage({
     required this.title,
@@ -35,11 +35,11 @@ class InternshipLanguage {
 }
 
 class EducationLanguage {
-  String title;
-  String subTitle;
-  Detail diplomaDetail;
-  Detail prepaDetail;
-  Detail schoolDetail;
+  final String title;
+  final String subTitle;
+  final Detail diplomaDetail;
+  final Detail prepaDetail;
+  final Detail schoolDetail;
 
   EducationLanguage({
     required this.title,
@@ -51,8 +51,8 @@ class EducationLanguage {
 }
 
 class Detail {
-  String title;
-  String detail;
+  final String title;
+  final String detail;
 
   Detail({
     required this.title,
