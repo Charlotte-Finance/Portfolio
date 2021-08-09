@@ -14,18 +14,16 @@ class ProjectsPage extends StatefulWidget {
 
 class ProjectsPageState extends State<ProjectsPage> {
   MyProjectsTab tab;
-  double width1 = 200;
-  double width2 = 550;
-  double height1 = 100;
-  double height2 = 350;
-  double width = 200;
-  double height = 100;
   bool inside = false;
 
   ProjectsPageState({required this.tab});
 
   @override
   Widget build(BuildContext context) {
+    double width1 = MediaQuery.of(context).size.width * 0.12;
+    double width2 = MediaQuery.of(context).size.width * 0.33;
+    double height1 = MediaQuery.of(context).size.height * 0.11;
+    double height2 = MediaQuery.of(context).size.height * 0.37;
     tab = widget.tab;
     return Stack(
       children: [
@@ -34,8 +32,8 @@ class ProjectsPageState extends State<ProjectsPage> {
           height: MediaQuery.of(context).size.height * 0.35,
         ),
         ProjectContainer(
-          top: 150,
-          right: 1100,
+          top: MediaQuery.of(context).size.height * 0.16,
+          right: MediaQuery.of(context).size.width * 0.65,
           width1: width1,
           width2: width2,
           height1: height1,
@@ -43,40 +41,40 @@ class ProjectsPageState extends State<ProjectsPage> {
           project: tab.graphProject,
         ),
         ProjectContainer(
-          top: 520,
-          left: 100,
+          top: MediaQuery.of(context).size.height * 0.55,
+          left: MediaQuery.of(context).size.width * 0.06,
           width1: width1,
           width2: width2,
           height1: height1,
           height2: height2,
-          project: tab.graphProject,
+          project: tab.binPacking,
         ),
         ProjectContainer(
-          bottom: 100,
-          right: 700,
+          bottom: MediaQuery.of(context).size.height * 0.11,
+          right: MediaQuery.of(context).size.width * 0.41,
           width1: width1,
           width2: width2,
           height1: height1,
           height2: height2,
-          project: tab.graphProject,
+          project: tab.springProject,
         ),
         ProjectContainer(
-          top: 150,
-          left: 1100,
+          top: MediaQuery.of(context).size.height * 0.16,
+          left: MediaQuery.of(context).size.width * 0.65,
           width1: width1,
           width2: width2,
           height1: height1,
           height2: height2,
-          project: tab.graphProject,
+          project: tab.mHealth,
         ),
         ProjectContainer(
-          top: 520,
-          right: 100,
+          top: MediaQuery.of(context).size.height * 0.55,
+          right: MediaQuery.of(context).size.width * 0.06,
           width1: width1,
           width2: width2,
           height1: height1,
           height2: height2,
-          project: tab.graphProject,
+          project: tab.projectMonitoring,
         ),
       ],
     );

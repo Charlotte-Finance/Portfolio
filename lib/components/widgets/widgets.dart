@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:portfolio/components/my_projects/first_page.dart';
+import 'package:portfolio/components/my_projects/second_page.dart';
 import 'package:portfolio/models/language/my_projects.dart';
 import 'package:portfolio/utils/styles.dart';
 

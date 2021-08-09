@@ -40,7 +40,7 @@ class ProjectContainer extends StatefulWidget {
 }
 
 class ProjectContainerState extends State<ProjectContainer> {
-  final Project project;
+  Project project;
   final double? top;
   final double? bottom;
   final double? left;
@@ -69,6 +69,23 @@ class ProjectContainerState extends State<ProjectContainer> {
 
   @override
   Widget build(BuildContext context) {
+    project = widget.project;
+    List<Widget> widgets = [
+      FirstPage(
+        project: project,
+      )
+    ];
+    if (project.subProjects != null) {
+      for (int i = 0; i < project.subProjects!.length; i++) {
+        widgets.add(
+          SecondPage(
+            subProject: project.subProjects![i],
+            pageNumber: i + 2,
+            totalPage: project.subProjects!.length+1,
+          ),
+        );
+      }
+    }
     return Positioned(
       top: top,
       bottom: bottom,
@@ -76,16 +93,20 @@ class ProjectContainerState extends State<ProjectContainer> {
       right: right,
       child: MouseRegion(
         onEnter: (details) {
-          setState(() {
-            width = width2;
-            height = height2;
-          });
+          setState(
+            () {
+              width = width2;
+              height = height2;
+            },
+          );
         },
-        onExit: (details) => setState(() {
-          width = width1;
-          height = height1;
-          done = false;
-        }),
+        onExit: (details) => setState(
+          () {
+            width = width1;
+            height = height1;
+            done = false;
+          },
+        ),
         child: AnimatedContainer(
           height: height,
           width: width,
@@ -95,22 +116,25 @@ class ProjectContainerState extends State<ProjectContainer> {
           ),
           duration: const Duration(milliseconds: 500),
           onEnd: () {
-            setState(() {
-              if (width == width2) {
-                done = true;
-              }
-            });
+            setState(
+              () {
+                if (width == width2) {
+                  done = true;
+                }
+              },
+            );
           },
           child: done
               ? SlidingContainers(
-                  containers: project.containers,
+                  widgets: widgets,
                 )
-          : Container(child:AutoSizeText(
-            project.title,
-            style: bigLightBoldStyle,
-            textAlign: TextAlign.center,
-          ),),
-
+              : Container(
+                  child: Text(
+                    project.title,
+                    style: bigLightBoldStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
         ),
       ),
     );
@@ -118,37 +142,69 @@ class ProjectContainerState extends State<ProjectContainer> {
 }
 
 class SlidingContainers extends StatelessWidget {
-  final List<Container> containers;
+  final List<Widget> widgets;
   final CarouselController _controller = CarouselController();
 
-  SlidingContainers({required this.containers});
+  SlidingContainers({required this.widgets});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: <Widget>[
         CarouselSlider(
-          items: containers,
-          options: CarouselOptions(enlargeCenterPage: true, height: 200),
+          items: widgets,
+          options: CarouselOptions(
+            viewportFraction: 1.0,
+            enlargeCenterPage: false,
+            // autoPlay: false,
+          ),
           carouselController: _controller,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              child: ElevatedButton(
-                onPressed: () => _controller.previousPage(),
-                child: Text('<-'),
-              ),
-            ),
-            Flexible(
-              child: ElevatedButton(
-                onPressed: () => _controller.nextPage(),
-                child: Text('->'),
-              ),
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ),
+                  ),
+                  onPressed: () => _controller.previousPage(),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.3675,
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ),
+                  ),
+                  onPressed: () => _controller.nextPage(),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.3675,
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
-        )
+        ),
       ],
     );
   }

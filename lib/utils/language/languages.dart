@@ -9,7 +9,11 @@ import 'package:portfolio/utils/language/my_skills/it_skills.dart';
 import 'package:portfolio/utils/language/my_skills/speaking_skills.dart';
 
 import 'home_page/internship.dart';
-import 'my_projects/my_projects.dart';
+import 'my_projects/bin_packing.dart';
+import 'my_projects/graph.dart';
+import 'my_projects/m_health.dart';
+import 'my_projects/project_monitoring.dart';
+import 'my_projects/spring.dart';
 import 'my_skills/personal_skills.dart';
 
 HomePageTab homePageFr = HomePageTab(
@@ -45,11 +49,19 @@ MyProjectsTab myProjectsFr = MyProjectsTab(
   name: "Mes projets",
   title: "Mes projets",
   graphProject: graphProjectFr,
+  binPacking: binPackingFr,
+  springProject: springProjectFr,
+  mHealth: mHealthFr,
+  projectMonitoring: projectMonitoringFr,
 );
 MyProjectsTab myProjectsEn = MyProjectsTab(
   name: "My Projects",
   title: "My projects",
   graphProject: graphProjectEn,
+  binPacking: binPackingEn,
+  springProject: springProjectEn,
+  mHealth: mHealthEn,
+  projectMonitoring: projectMonitoringEn,
 );
 
 MyTab cvFr = MyTab(
@@ -76,10 +88,10 @@ List<MyTab> myTabsEn = [homePageEn, skillsEn, myProjectsEn, cvEn, contactEn];
 Language languageFr = Language(
   name: "Français",
   tabs: myTabsFr,
-  flag: AssetImage('lib/assets/french_flag.png'),
+  flag: AssetImage('lib/assets/flags/french_flag.png'),
 );
 Language languageEn = Language(
   name: "English",
   tabs: myTabsEn,
-  flag: AssetImage('lib/assets/english_flag.jpg'),
+  flag: AssetImage('lib/assets/flags/english_flag.jpg'),
 );

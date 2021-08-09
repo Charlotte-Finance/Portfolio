@@ -52,7 +52,10 @@ flutter:
   uses-material-design: true
   assets:
     - lib/assets/
+    - lib/assets/flags/
     - lib/assets/logos/
+    - lib/assets/projects/
+    - lib/assets/projects/bin_packing/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
