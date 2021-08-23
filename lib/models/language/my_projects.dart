@@ -25,29 +25,11 @@ class MyProjectsTab extends MyTab {
 
 class Project {
   final String title;
-  final String description;
-  final AssetImage image;
-  final List<Information> information;
-  final List<SubProject>? subProjects;
+  final List<Widget> widgets;
 
   const Project({
     required this.title,
-    required this.description,
-    required this.information,
-    required this.image,
-    this.subProjects,
-  });
-}
-
-class SubProject {
-  final String title;
-  final AssetImage? image;
-  final List<Detail> details;
-
-  const SubProject({
-    required this.title,
-    required this.details,
-    this.image,
+    required this.widgets,
   });
 }
 

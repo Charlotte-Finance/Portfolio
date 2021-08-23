@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:portfolio/components/my_projects/first_page.dart';
+import 'package:portfolio/components/my_projects/information_page.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/my_projects.dart';
 
@@ -13,8 +15,25 @@ List<Information> informationEn = [
   Information(information: "13/20", type: InformationType.diverse),
 ];
 
-SubProject subDescriptionFr = SubProject(
+FirstPage firstPageFr = FirstPage(
   title: "Problème du bin Packing",
+  information: informationFr,
+  image: AssetImage('lib/assets/projects/bin_packing/bin_packing.PNG'),
+  description:
+      "L'objectif de ce projet scolaire était de trouver des solutions pour un problème d'optimisation discète. "
+      "Le problème est de ranger des items de tailles diverses dans des bins de tailles fixes, en utilisant le moins de bin possible.",
+);
+FirstPage firstPageEn = FirstPage(
+  title: "Bin Packing",
+  information: informationEn,
+  image: AssetImage('lib/assets/projects/bin_packing/bin_packing.PNG'),
+  description:
+      "The objective of this school project was to find solutions for a discrete optimisation problem. "
+      "The problem is to arrange items of various sizes in bins of fixed size, using as few bins as possible.",
+);
+
+InformationPage objectivesFr = InformationPage(
+  title: "Problème du Bin Packing",
   details: [
     Detail(
       title: "Objectifs",
@@ -34,7 +53,7 @@ SubProject subDescriptionFr = SubProject(
     ),
   ],
 );
-SubProject subDescriptionEn = SubProject(
+InformationPage objectivesEn = InformationPage(
   title: "Bin Packing",
   details: [
     Detail(
@@ -55,7 +74,7 @@ SubProject subDescriptionEn = SubProject(
   ],
 );
 
-SubProject subAnnealingFr = SubProject(
+InformationPage subAnnealingFr = InformationPage(
   title: "Recuit Simulé",
   details: [
     Detail(
@@ -66,7 +85,7 @@ SubProject subAnnealingFr = SubProject(
   ],
   image: AssetImage('lib/assets/projects/bin_packing/annealing.PNG'),
 );
-SubProject subAnnealingEn = SubProject(
+InformationPage subAnnealingEn = InformationPage(
   title: "Simulated Annealing",
   details: [
     Detail(
@@ -77,7 +96,7 @@ SubProject subAnnealingEn = SubProject(
   image: AssetImage('lib/assets/projects/bin_packing/annealing.PNG'),
 );
 
-SubProject subTabuFr = SubProject(
+InformationPage subTabuFr = InformationPage(
   title: "Recherche Tabou",
   details: [
     Detail(
@@ -88,7 +107,7 @@ SubProject subTabuFr = SubProject(
   ],
   image: AssetImage('lib/assets/projects/bin_packing/tabu.PNG'),
 );
-SubProject subTabuEn = SubProject(
+InformationPage subTabuEn = InformationPage(
   title: "Tabu Search",
   details: [
     Detail(
@@ -101,28 +120,19 @@ SubProject subTabuEn = SubProject(
 );
 
 Project binPackingFr = Project(
-  title: "Problème du bin Packing",
-  description:
-      "L'objectif de ce projet scolaire était de trouver des solutions pour un problème d'optimisation discète. "
-      "Le problème est de ranger des items de tailles diverses dans des bins de tailles fixes, en utilisant le moins de bin possible.",
-  information: informationFr,
-  image: AssetImage('lib/assets/projects/bin_packing/bin_packing.PNG'),
-  subProjects: [
-    subDescriptionFr,
-    subAnnealingFr,
-    subTabuFr,
+  title: "Problème du Bin Packing",
+  widgets: [
+    firstPageEn,
+    objectivesEn,
+    subAnnealingEn,
+    subTabuEn,
   ],
 );
-
 Project binPackingEn = Project(
   title: "Bin Packing",
-  description:
-      "The objective of this school project was to find solutions for a discrete optimisation problem. "
-      "The problem is to arrange items of various sizes in bins of fixed size, using as few bins as possible..",
-  information: informationEn,
-  image: AssetImage('lib/assets/projects/bin_packing/bin_packing.PNG'),
-  subProjects: [
-    subDescriptionEn,
+  widgets: [
+    firstPageEn,
+    objectivesEn,
     subAnnealingEn,
     subTabuEn,
   ],

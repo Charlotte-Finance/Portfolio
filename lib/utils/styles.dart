@@ -16,10 +16,15 @@ late TextStyle darkBoldStyle;
 late TextStyle bigDarkBoldStyle;
 late TextStyle lightBoldStyle;
 late TextStyle bigLightBoldStyle;
+late TextStyle yellowBoldStyle;
+late TextStyle mediumYellowBoldStyle;
+late TextStyle bigYellowBoldStyle;
 
 late TextStyle darkBodyStyle;
 late TextStyle bigDarkBodyStyle;
 late TextStyle lightBodyStyle;
+late TextStyle bigLightBodyStyle;
+late TextStyle mediumWhiteBodyStyle;
 
 void createStyles(BuildContext context) {
   imageTitleStyle = TextStyle(
@@ -76,6 +81,18 @@ void createStyles(BuildContext context) {
       fontSize: MediaQuery.of(context).size.width * 0.01,
       color: Colors.white,
       fontWeight: FontWeight.bold);
+  yellowBoldStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.005,
+      color: Colors.yellow,
+      fontWeight: FontWeight.bold);
+  mediumYellowBoldStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.0073,
+      color: Colors.yellow,
+      fontWeight: FontWeight.bold);
+  bigYellowBoldStyle = TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.01,
+      color: Colors.yellow,
+      fontWeight: FontWeight.bold);
 
   darkBodyStyle = TextStyle(
       fontSize: MediaQuery.of(context).size.width * 0.005,
@@ -86,4 +103,10 @@ void createStyles(BuildContext context) {
   lightBodyStyle = TextStyle(
       fontSize: MediaQuery.of(context).size.width * 0.005,
       color: Colors.white70);
+  bigLightBodyStyle =TextStyle(
+      fontSize: MediaQuery.of(context).size.width * 0.01,
+      color: Colors.white70);
+  mediumWhiteBodyStyle =
+    TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.0073,);
+
 }

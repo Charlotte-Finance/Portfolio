@@ -70,21 +70,9 @@ class ProjectContainerState extends State<ProjectContainer> {
   @override
   Widget build(BuildContext context) {
     project = widget.project;
-    List<Widget> widgets = [
-      FirstPage(
-        project: project,
-      )
-    ];
-    if (project.subProjects != null) {
-      for (int i = 0; i < project.subProjects!.length; i++) {
-        widgets.add(
-          SecondPage(
-            subProject: project.subProjects![i],
-            pageNumber: i + 2,
-            totalPage: project.subProjects!.length+1,
-          ),
-        );
-      }
+    List<Widget> widgets = [];
+    for (int i=0; i<project.widgets.length; i++){
+      widgets.add(ProjectCard(child: project.widgets[i], pageNumber: i+1, maxPage: project.widgets.length,));
     }
     return Positioned(
       top: top,
@@ -156,7 +144,6 @@ class SlidingContainers extends StatelessWidget {
           options: CarouselOptions(
             viewportFraction: 1.0,
             enlargeCenterPage: false,
-            // autoPlay: false,
           ),
           carouselController: _controller,
         ),

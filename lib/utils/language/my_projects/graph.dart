@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:portfolio/components/my_projects/first_page.dart';
+import 'package:portfolio/components/my_projects/information_page.dart';
 import 'package:portfolio/models/language/home_page.dart';
 import 'package:portfolio/models/language/my_projects.dart';
 
@@ -13,7 +15,24 @@ List<Information> informationEn = [
   Information(information: "15/20", type: InformationType.diverse),
 ];
 
-SubProject subDescriptionFr = SubProject(
+FirstPage firstPageFr = FirstPage(
+  title: "Coloration de graphes et Arbres couvrants",
+  information: informationFr,
+  image: AssetImage('lib/assets/projects/graph.jpg'),
+  description:
+      "L'objectif de ce projet effectué dans un cadre scolaire était d'implémenter divers algorithmes de coloration de graphe. "
+      "ainsi que de tester des algorithmes d'arbres couvrants.",
+);
+FirstPage firstPageEn = FirstPage(
+  title: "Graph colouring and Spanning Trees",
+  description:
+      "The objective of this project carried out in a school setting was to implement various graph colouring algorithms, "
+      "as well as to test Spanning Trees algorithms.",
+  information: informationEn,
+  image: AssetImage('lib/assets/projects/graph/graph.jpg'),
+);
+
+InformationPage objectivesFr = InformationPage(
   title: "Coloration de Graphes",
   details: [
     Detail(
@@ -30,7 +49,7 @@ SubProject subDescriptionFr = SubProject(
     ),
   ],
 );
-SubProject subDescriptionEn = SubProject(
+InformationPage objectivesEn = InformationPage(
   title: "Graph Coloring",
   details: [
     Detail(
@@ -48,7 +67,7 @@ SubProject subDescriptionEn = SubProject(
   ],
 );
 
-SubProject welshPowellFr = SubProject(
+InformationPage welshPowellFr = InformationPage(
   title: "Algorithme de Welsh et Powell",
   details: [
     Detail(
@@ -62,7 +81,7 @@ SubProject welshPowellFr = SubProject(
     ),
   ],
 );
-SubProject welshPowellEn = SubProject(
+InformationPage welshPowellEn = InformationPage(
   title: "Welsh and Powell algorithm",
   details: [
     Detail(
@@ -77,7 +96,7 @@ SubProject welshPowellEn = SubProject(
   ],
 );
 
-SubProject dSatFr = SubProject(
+InformationPage dSatFr = InformationPage(
   title: "Algorithme DSatur",
   details: [
     Detail(
@@ -91,7 +110,7 @@ SubProject dSatFr = SubProject(
     ),
   ],
 );
-SubProject dSatEn = SubProject(
+InformationPage dSatEn = InformationPage(
   title: "DSatur algorithm",
   details: [
     Detail(
@@ -107,27 +126,18 @@ SubProject dSatEn = SubProject(
 
 Project graphProjectFr = Project(
   title: "Coloration de graphes et Arbres couvrants",
-  description:
-      "L'objectif de ce projet effectué dans un cadre scolaire était d'implémenter divers algorithmes de coloration de graphe. "
-      "ainsi que de tester des algorithmes d'arbres couvrants.",
-  information: informationFr,
-  image: AssetImage('lib/assets/projects/graph.jpg'),
-  subProjects: [
-    subDescriptionFr,
+  widgets: [
+    firstPageFr,
+    objectivesFr,
     welshPowellFr,
     dSatFr,
   ],
 );
-
 Project graphProjectEn = Project(
   title: "Graph colouring and Spanning Trees",
-  description:
-      "The objective of this project carried out in a school setting was to implement various graph colouring algorithms, "
-      "as well as to test Spanning Trees algorithms.",
-  information: informationEn,
-  image: AssetImage('lib/assets/projects/graph.jpg'),
-  subProjects: [
-    subDescriptionEn,
+  widgets: [
+    firstPageEn,
+    objectivesEn,
     welshPowellEn,
     dSatEn,
   ],
